@@ -53,8 +53,6 @@ def check(url):
     sys.stdout.flush()
 
 
-# -------------------------------------------------------------------------------------------------
-
 # perform request and fetch response header
 def cors(url, origin, ssltest=False, firstrun=False):
     url = ("http://" if not (ssltest or args.s) else "https://") + url
@@ -73,12 +71,6 @@ def cors(url, origin, ssltest=False, firstrun=False):
         response = urllib.request.urlopen(
             request, timeout=10, context=ssl_context
         )
-        # if "_create_unverified_context" not in dir(ssl):
-        #     response = urllib.request.urlopen(request, timeout=10)
-        # else:
-        #     response = urllib.request.urlopen(
-        #         request, timeout=10, context=ssl._create_unverified_context()
-        #     )
 
         acao = response.info().get("Access-Control-Allow-Origin")
         acac = (
@@ -122,8 +114,6 @@ def cors(url, origin, ssltest=False, firstrun=False):
             return ""
 
 
-# -------------------------------------------------------------------------------------------------
-
 # check if given hostname is a second-level domain
 def sld(host):
     try:
@@ -136,9 +126,6 @@ def sld(host):
             host = host[: -len(tld)]
     if host.count(".") == 1:
         return True
-
-
-# -------------------------------------------------------------------------------------------------
 
 
 def error(url, msg):
