@@ -1,4 +1,5 @@
 # CORSTest
+Main repo: https://github.com/RUB-NDS/CORStest
 
 ### A simple CORS misconfiguration scanner
 
